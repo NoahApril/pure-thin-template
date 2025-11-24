@@ -8,6 +8,12 @@ html[data-theme="light"] {
   --pure-theme-sidebar-logo: #fff;
   --pure-theme-menu-title-hover: #000;
   --pure-theme-menu-active-before: #4091f7;
+
+  /* 新增玻璃拟态变量 */
+  --glass-container-bg: rgb(255 255 255 / 60%);
+  --glass-container-border: rgb(226 232 240 / 60%);
+  --glass-container-hover: rgb(255 255 255 / 80%);
+  --glass-container-hover-border: rgb(203 213 225 / 80%);
 }
 
 /* 道奇蓝 */
@@ -92,4 +98,82 @@ html[data-theme="auroraGreen"] {
   --pure-theme-sidebar-logo: #112f21;
   --pure-theme-menu-title-hover: #fff;
   --pure-theme-menu-active-before: #60ac80;
+}
+
+/* ========== 玻璃拟态设计系统变量 ========== */
+
+:root {
+  /* 透明度等级 */
+  --glass-opacity-low: 0.4;
+  --glass-opacity-medium: 0.6;
+  --glass-opacity-high: 0.8;
+
+  /* 模糊程度 */
+  --glass-blur-xs: 4px;
+  --glass-blur-sm: 8px;
+  --glass-blur-md: 12px;
+  --glass-blur-lg: 16px;
+
+  /* 渐变系统 */
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+  --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+  --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  --gradient-danger: linear-gradient(135deg, #ef4444 0%, #ec4899 100%);
+
+  /* 圆角现代化 */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  /* 阴影系统 */
+  --shadow-soft: 0 2px 4px rgb(0 0 0 / 3%), 0 4px 8px rgb(0 0 0 / 4%);
+  --shadow-elevated:
+    0 4px 8px rgb(0 0 0 / 6%), 0 8px 16px rgb(0 0 0 / 8%),
+    0 12px 24px rgb(0 0 0 / 4%);
+  --shadow-floating:
+    0 8px 16px rgb(0 0 0 / 8%), 0 16px 32px rgb(0 0 0 / 10%),
+    0 24px 48px rgb(0 0 0 / 8%);
+  --shadow-glow: 0 0 20px rgb(59 130 246 / 30%), 0 8px 24px rgb(0 0 0 / 8%);
+
+  /* 过渡时间 */
+  --transition-fast: 200ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+
+  /* 缓动函数 */
+  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 其他主题类似更新 */
+html[data-theme="default"],
+html[data-theme="saucePurple"],
+html[data-theme="pink"],
+html[data-theme="dusk"],
+html[data-theme="volcano"],
+html[data-theme="mingQing"],
+html[data-theme="auroraGreen"] {
+  --glass-container-bg: rgb(255 255 255 / 60%);
+  --glass-container-border: rgb(226 232 240 / 60%);
+  --glass-container-hover: rgb(255 255 255 / 80%);
+  --glass-container-hover-border: rgb(203 213 225 / 80%);
+}
+
+/* 深色模式适配 */
+html.dark {
+  --glass-opacity-low: 0.3;
+  --glass-opacity-medium: 0.5;
+  --glass-opacity-high: 0.7;
+  --glass-container-bg: rgb(15 23 42 / 60%);
+  --glass-container-border: rgb(71 85 105 / 60%);
+  --glass-container-hover: rgb(30 41 59 / 80%);
+  --glass-container-hover-border: rgb(100 116 139 / 80%);
+  --shadow-soft: 0 2px 4px rgb(0 0 0 / 10%), 0 4px 8px rgb(0 0 0 / 12%);
+  --shadow-elevated:
+    0 4px 8px rgb(0 0 0 / 15%), 0 8px 16px rgb(0 0 0 / 20%),
+    0 12px 24px rgb(0 0 0 / 12%);
 }
