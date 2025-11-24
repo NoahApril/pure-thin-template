@@ -24,6 +24,62 @@
   --pure-theme-sidebar-logo: none;
   --pure-theme-menu-title-hover: initial;
   --pure-theme-menu-active-before: transparent;
+
+  /* ===== 新增: 玻璃拟态颜色系统 ===== */
+
+  /* 白色系统 - 用于Light主题 */
+  --color-white-40: rgb(255 255 255 / 40%);
+  --color-white-60: rgb(255 255 255 / 60%);
+  --color-white-80: rgb(255 255 255 / 80%);
+
+  /* 灰色系统 - 用于边框和分隔线 */
+  --color-slate-200-40: rgb(226 232 240 / 40%);
+  --color-slate-200-60: rgb(226 232 240 / 60%);
+  --color-slate-300-80: rgb(203 213 225 / 80%);
+  --color-slate-400-60: rgb(148 163 184 / 60%);
+
+  /* 文本层次系统 - 6级深度 */
+  --color-text-h1: rgb(15 23 42 / 100%); /* 主标题 */
+  --color-text-h2: rgb(30 41 59 / 100%); /* 页面标题 */
+  --color-text-h3: rgb(51 65 85 / 100%); /* 章节标题 */
+  --color-text-body: rgb(71 85 105 / 100%); /* 正文 */
+  --color-text-secondary: rgb(100 116 139 / 80%); /* 次要文本 */
+  --color-text-tertiary: rgb(120 113 108 / 60%); /* 辅助文本 */
+  --color-text-hint: rgb(148 163 184 / 100%); /* 提示文本 */
+
+  /* 状态色 - 浅色背景版本 */
+  --color-success-text: rgb(16 185 129 / 100%);
+  --color-success-bg: rgb(16 185 129 / 8%);
+  --color-success-bg-hover: rgb(16 185 129 / 12%);
+  --color-warning-text: rgb(245 158 11 / 100%);
+  --color-warning-bg: rgb(245 158 11 / 8%);
+  --color-warning-bg-hover: rgb(245 158 11 / 12%);
+  --color-error-text: rgb(239 68 68 / 100%);
+  --color-error-bg: rgb(239 68 68 / 8%);
+  --color-error-bg-hover: rgb(239 68 68 / 12%);
+  --color-info-text: rgb(59 130 246 / 100%);
+  --color-info-bg: rgb(59 130 246 / 8%);
+  --color-info-bg-hover: rgb(59 130 246 / 12%);
+
+  /* 禁用状态 */
+  --color-disabled-bg: rgb(0 0 0 / 4%);
+  --color-disabled-text: rgb(0 0 0 / 26%);
+  --color-disabled-border: rgb(0 0 0 / 12%);
+}
+
+/* 深色模式颜色调整 */
+.dark {
+  --color-text-h1: rgb(248 250 252 / 100%);
+  --color-text-h2: rgb(226 232 240 / 100%);
+  --color-text-h3: rgb(203 213 225 / 100%);
+  --color-text-body: rgb(148 163 184 / 100%);
+  --color-text-secondary: rgb(148 163 184 / 80%);
+  --color-text-tertiary: rgb(120 113 108 / 60%);
+  --color-white-40: rgb(30 41 59 / 40%);
+  --color-white-60: rgb(30 41 59 / 60%);
+  --color-white-80: rgb(30 41 59 / 80%);
+  --color-disabled-bg: rgb(255 255 255 / 4%);
+  --color-disabled-text: rgb(255 255 255 / 26%);
 }
 
 /* 灰色模式 */
