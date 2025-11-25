@@ -1,6 +1,7 @@
 # 🎨 Pure-Admin UI 玻璃拟态设计改进方案
 
 ## 📋 目录
+
 1. [现状分析](#现状分析)
 2. [玻璃拟态设计差异](#玻璃拟态设计差异)
 3. [实施改进方案](#实施改进方案)
@@ -14,6 +15,7 @@
 ### 🔍 当前UI系统概述
 
 #### 技术栈
+
 - **UI框架**: Element Plus 2.11+ (官方UI组件库)
 - **CSS框架**: Tailwind CSS v4.1 (原子化CSS)
 - **预处理器**: SCSS (高级样式特性)
@@ -22,6 +24,7 @@
 - **响应式**: Element Plus媒体查询 + Tailwind断点
 
 #### 现有设计系统
+
 ```
 ├── 颜色系统
 │   ├── 主题变量 (CSS Variables)
@@ -44,6 +47,7 @@
 ```
 
 ### ✨ 现有优势
+
 - ✅ 完整的主题色切换系统
 - ✅ 强大的响应式布局
 - ✅ 现代化的扁平设计
@@ -52,6 +56,7 @@
 - ✅ 完善的权限系统支持
 
 ### ⚠️ 现有缺陷
+
 1. **容器设计过于简单**
    - 缺乏半透明背景效果
    - 无毛玻璃模糊(backdrop-blur)
@@ -88,22 +93,23 @@
 
 ### 📊 对比表格
 
-| 维度 | 当前设计 | 玻璃拟态设计 | 改进幅度 |
-|------|---------|-------------|---------|
-| **容器背景** | solid `#fff` | `bg-white/60` + `backdrop-blur-sm` | ⭐⭐⭐⭐⭐ |
-| **边框** | `1px solid #e5e7eb` | `border-slate-200/60` + 渐变支持 | ⭐⭐⭐⭐ |
-| **圆角** | `4px-8px` | `rounded-2xl` (16px) | ⭐⭐⭐ |
-| **阴影** | 2种 | 4种 (soft/elevated/floating/glow) | ⭐⭐⭐⭐ |
-| **交互** | hover背景色 | hover + scale + translateY | ⭐⭐⭐⭐⭐ |
-| **渐变** | 无 | 完整渐变系统 | ⭐⭐⭐⭐⭐ |
-| **颜色透明度** | 固定 | 变量化 (40%/60%/80%) | ⭐⭐⭐⭐ |
-| **文本层次** | 4级 | 6级 + 渐变文本 | ⭐⭐⭐⭐ |
-| **动画过渡** | transition-all 300ms | 多层级过渡 | ⭐⭐⭐ |
-| **可访问性** | 基础 | WCAG AA + ARIA支持 | ⭐⭐⭐⭐ |
+| 维度           | 当前设计             | 玻璃拟态设计                       | 改进幅度   |
+| -------------- | -------------------- | ---------------------------------- | ---------- |
+| **容器背景**   | solid `#fff`         | `bg-white/60` + `backdrop-blur-sm` | ⭐⭐⭐⭐⭐ |
+| **边框**       | `1px solid #e5e7eb`  | `border-slate-200/60` + 渐变支持   | ⭐⭐⭐⭐   |
+| **圆角**       | `4px-8px`            | `rounded-2xl` (16px)               | ⭐⭐⭐     |
+| **阴影**       | 2种                  | 4种 (soft/elevated/floating/glow)  | ⭐⭐⭐⭐   |
+| **交互**       | hover背景色          | hover + scale + translateY         | ⭐⭐⭐⭐⭐ |
+| **渐变**       | 无                   | 完整渐变系统                       | ⭐⭐⭐⭐⭐ |
+| **颜色透明度** | 固定                 | 变量化 (40%/60%/80%)               | ⭐⭐⭐⭐   |
+| **文本层次**   | 4级                  | 6级 + 渐变文本                     | ⭐⭐⭐⭐   |
+| **动画过渡**   | transition-all 300ms | 多层级过渡                         | ⭐⭐⭐     |
+| **可访问性**   | 基础                 | WCAG AA + ARIA支持                 | ⭐⭐⭐⭐   |
 
 ### 🎯 核心设计理念差异
 
 #### 当前设计
+
 ```
 容器 = 白底 + 直角 + 单阴影
 交互 = 背景色变化
@@ -111,6 +117,7 @@
 ```
 
 #### 玻璃拟态设计
+
 ```
 容器 = 半透明 + 毛玻璃 + 圆角 + 分层阴影
 交互 = 透明度 + 阴影 + 位移 + 缩放
@@ -177,34 +184,50 @@
 @layer utilities {
   /* 阴影分层 */
   .shadow-soft {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 
-                0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.06),
+      0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
   .shadow-elevated {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12),
-                0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .shadow-floating {
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15),
-                0 12px 24px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.15),
+      0 12px 24px rgba(0, 0, 0, 0.1);
   }
 
   .shadow-glow {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3),
-                0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow:
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 8px 24px rgba(0, 0, 0, 0.12);
   }
 
   /* 透明度变量 */
-  .bg-glass-40 { @apply bg-white/40; }
-  .bg-glass-60 { @apply bg-white/60; }
-  .bg-glass-80 { @apply bg-white/80; }
+  .bg-glass-40 {
+    @apply bg-white/40;
+  }
+  .bg-glass-60 {
+    @apply bg-white/60;
+  }
+  .bg-glass-80 {
+    @apply bg-white/80;
+  }
 
   /* 边框色变量 */
-  .border-glass-light { @apply border-slate-200/40; }
-  .border-glass-medium { @apply border-slate-200/60; }
-  .border-glass-dark { @apply border-slate-300/80; }
+  .border-glass-light {
+    @apply border-slate-200/40;
+  }
+  .border-glass-medium {
+    @apply border-slate-200/60;
+  }
+  .border-glass-dark {
+    @apply border-slate-300/80;
+  }
 
   /* 过渡效果组合 */
   .transition-glass {
@@ -273,7 +296,7 @@ html.dark {
 ```scss
 :root {
   /* 扩展颜色系统 - 带透明度 */
-  
+
   /* 白色系统 */
   --color-white-40: rgb(255 255 255 / 40%);
   --color-white-60: rgb(255 255 255 / 60%);
@@ -285,13 +308,13 @@ html.dark {
   --color-slate-300-80: rgb(203 213 225 / 80%);
 
   /* 文本系统 - 深度层次 */
-  --color-text-h1: rgb(15 23 42 / 100%);     /* 主标题 - 最深 */
-  --color-text-h2: rgb(30 41 59 / 100%);     /* 页面标题 */
-  --color-text-h3: rgb(51 65 85 / 100%);     /* 章节标题 */
-  --color-text-primary: rgb(71 85 105 / 100%);   /* 正文 */
-  --color-text-secondary: rgb(100 116 139 / 80%);  /* 次要文本 */
-  --color-text-tertiary: rgb(120 113 108 / 60%);   /* 辅助文本 */
-  --color-text-placeholder: rgb(148 163 184 / 100%);  /* 提示文本 */
+  --color-text-h1: rgb(15 23 42 / 100%); /* 主标题 - 最深 */
+  --color-text-h2: rgb(30 41 59 / 100%); /* 页面标题 */
+  --color-text-h3: rgb(51 65 85 / 100%); /* 章节标题 */
+  --color-text-primary: rgb(71 85 105 / 100%); /* 正文 */
+  --color-text-secondary: rgb(100 116 139 / 80%); /* 次要文本 */
+  --color-text-tertiary: rgb(120 113 108 / 60%); /* 辅助文本 */
+  --color-text-placeholder: rgb(148 163 184 / 100%); /* 提示文本 */
 
   /* 状态色 - 浅色背景 */
   --color-success-bg: rgb(16 185 129 / 8%);
@@ -355,13 +378,13 @@ interface Props {
   icon?: any;
   hoverable?: boolean;
   gradient?: boolean;
-  shadow?: 'soft' | 'elevated' | 'floating';
+  shadow?: "soft" | "elevated" | "floating";
 }
 
 withDefaults(defineProps<Props>(), {
   hoverable: true,
   gradient: false,
-  shadow: 'soft'
+  shadow: "soft"
 });
 </script>
 
@@ -394,10 +417,14 @@ withDefaults(defineProps<Props>(), {
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      transparent 100%
+    );
     pointer-events: none;
     opacity: 0;
     transition: opacity 300ms;
@@ -435,18 +462,21 @@ withDefaults(defineProps<Props>(), {
 
   /* 阴影变量 */
   &--shadow-soft {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06),
-                0 1px 3px rgba(0, 0, 0, 0.04);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.06),
+      0 1px 3px rgba(0, 0, 0, 0.04);
   }
 
   &--shadow-elevated {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12),
-                0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   &--shadow-floating {
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15),
-                0 12px 24px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 20px 48px rgba(0, 0, 0, 0.15),
+      0 12px 24px rgba(0, 0, 0, 0.1);
   }
 
   /* 交互效果 */
@@ -465,9 +495,12 @@ withDefaults(defineProps<Props>(), {
 
   /* 渐变背景 */
   &--gradient {
-    background: linear-gradient(135deg,
-      rgba(59, 130, 246, 0.05) 0%,
-      rgba(168, 85, 247, 0.05) 100%),
+    background:
+      linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.05) 0%,
+        rgba(168, 85, 247, 0.05) 100%
+      ),
       rgba(255, 255, 255, 0.6);
   }
 }
@@ -497,8 +530,8 @@ withDefaults(defineProps<Props>(), {
 
 ```vue
 <script setup lang="ts">
-type ButtonType = 'primary' | 'secondary' | 'text';
-type ButtonSize = 'sm' | 'md' | 'lg';
+type ButtonType = "primary" | "secondary" | "text";
+type ButtonSize = "sm" | "md" | "lg";
 
 interface Props {
   type?: ButtonType;
@@ -509,8 +542,8 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  type: 'primary',
-  size: 'md',
+  type: "primary",
+  size: "md",
   disabled: false,
   loading: false
 });
@@ -549,13 +582,15 @@ withDefaults(defineProps<Props>(), {
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+      90deg,
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 0.3) 50%,
-      rgba(255, 255, 255, 0) 100%);
+      rgba(255, 255, 255, 0) 100%
+    );
     transform: translateX(-100%);
     transition: transform 0.6s;
   }
@@ -650,8 +685,8 @@ withDefaults(defineProps<Props>(), {
 
 ```vue
 <script setup lang="ts">
-import GlassCard from '@/components/GlassCard/index.vue';
-import GlassButton from '@/components/GlassButton/index.vue';
+import GlassCard from "@/components/GlassCard/index.vue";
+import GlassButton from "@/components/GlassButton/index.vue";
 
 defineOptions({
   name: "Welcome"
@@ -659,19 +694,19 @@ defineOptions({
 
 const features = [
   {
-    icon: '✨',
-    title: '玻璃拟态设计',
-    description: '现代化的苹果风格UI，半透明容器+毛玻璃模糊效果'
+    icon: "✨",
+    title: "玻璃拟态设计",
+    description: "现代化的苹果风格UI，半透明容器+毛玻璃模糊效果"
   },
   {
-    icon: '🎨',
-    title: '丰富颜色系统',
-    description: '完整的渐变系统、透明度变量、可访问性优化'
+    icon: "🎨",
+    title: "丰富颜色系统",
+    description: "完整的渐变系统、透明度变量、可访问性优化"
   },
   {
-    icon: '⚡',
-    title: '流畅交互',
-    description: '悬浮上移、缩放、渐变等丰富的交互效果'
+    icon: "⚡",
+    title: "流畅交互",
+    description: "悬浮上移、缩放、渐变等丰富的交互效果"
   }
 ];
 </script>
@@ -699,12 +734,8 @@ const features = [
     </div>
 
     <div class="welcome-actions">
-      <GlassButton type="primary" size="lg">
-        开始使用
-      </GlassButton>
-      <GlassButton type="secondary" size="lg">
-        查看文档
-      </GlassButton>
+      <GlassButton type="primary" size="lg"> 开始使用 </GlassButton>
+      <GlassButton type="secondary" size="lg"> 查看文档 </GlassButton>
     </div>
   </div>
 </template>
@@ -712,9 +743,11 @@ const features = [
 <style lang="scss" scoped>
 .welcome-page {
   min-height: 100vh;
-  background: linear-gradient(135deg,
+  background: linear-gradient(
+    135deg,
     rgba(226, 232, 240, 0.1) 0%,
-    rgba(148, 163, 184, 0.1) 100%);
+    rgba(148, 163, 184, 0.1) 100%
+  );
   padding: 60px 20px;
 }
 
@@ -774,9 +807,11 @@ const features = [
 
 :deep(.dark) {
   .welcome-page {
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       rgba(51, 65, 85, 0.1) 0%,
-      rgba(71, 85, 105, 0.1) 100%);
+      rgba(71, 85, 105, 0.1) 100%
+    );
   }
 }
 </style>
@@ -821,14 +856,14 @@ Week 6-7: Phase 3 (页面集成)
 
 ### 📦 关键交付物
 
-| 阶段 | 交付物 | 状态 |
-|------|--------|------|
-| Phase 1 | tailwind.css 更新, theme.scss 扩展 | 📝 计划 |
+| 阶段    | 交付物                                  | 状态    |
+| ------- | --------------------------------------- | ------- |
+| Phase 1 | tailwind.css 更新, theme.scss 扩展      | 📝 计划 |
 | Phase 2 | GlassCard, GlassButton, GlassInput 组件 | 📝 计划 |
-| Phase 2 | 改造后的 NavBar, Sidebar, Layout | 📝 计划 |
-| Phase 3 | Welcome, Permission, Error 页面重设计 | 📝 计划 |
-| Phase 3 | 深色模式全面适配 | 📝 计划 |
-| 全部 | UI Storybook (可选) | 📝 计划 |
+| Phase 2 | 改造后的 NavBar, Sidebar, Layout        | 📝 计划 |
+| Phase 3 | Welcome, Permission, Error 页面重设计   | 📝 计划 |
+| Phase 3 | 深色模式全面适配                        | 📝 计划 |
+| 全部    | UI Storybook (可选)                     | 📝 计划 |
 
 ---
 
@@ -856,14 +891,14 @@ Week 6-7: Phase 3 (页面集成)
 
 ### 💰 预期收益
 
-| 维度 | 当前状态 | 改进后 | 提升 |
-|------|---------|--------|------|
-| **视觉现代化** | 60分 | 95分 | +35% |
-| **用户体验** | 70分 | 92分 | +22% |
-| **交互流畅度** | 65分 | 90分 | +25% |
-| **可访问性** | 60分 | 88分 | +28% |
-| **代码可维护性** | 75分 | 85分 | +10% |
-| **品牌认知度** | 70分 | 93分 | +23% |
+| 维度             | 当前状态 | 改进后 | 提升 |
+| ---------------- | -------- | ------ | ---- |
+| **视觉现代化**   | 60分     | 95分   | +35% |
+| **用户体验**     | 70分     | 92分   | +22% |
+| **交互流畅度**   | 65分     | 90分   | +25% |
+| **可访问性**     | 60分     | 88分   | +28% |
+| **代码可维护性** | 75分     | 85分   | +10% |
+| **品牌认知度**   | 70分     | 93分   | +23% |
 
 ---
 
@@ -872,11 +907,12 @@ Week 6-7: Phase 3 (页面集成)
 ### 🔧 关键技术点
 
 #### 1. Backdrop-filter兼容性
+
 ```css
 .glass {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  
+
   /* 降级方案 */
   @supports not (backdrop-filter: blur(1px)) {
     background-color: rgba(255, 255, 255, 0.95);
@@ -885,6 +921,7 @@ Week 6-7: Phase 3 (页面集成)
 ```
 
 #### 2. 深色模式检测
+
 ```scss
 @media (prefers-color-scheme: dark) {
   .glass-refined {
@@ -899,6 +936,7 @@ Week 6-7: Phase 3 (页面集成)
 ```
 
 #### 3. 渐变文本支持
+
 ```css
 .text-gradient {
   background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
@@ -911,12 +949,12 @@ Week 6-7: Phase 3 (页面集成)
 
 ### 📊 性能考虑
 
-| 优化措施 | 预期提升 | 实现难度 |
-|---------|---------|---------|
-| backdrop-filter GPU加速 | -5% 首屏 | 低 |
-| 阴影合并减少重排 | -3% 交互延迟 | 中 |
-| 渐变纹理缓存 | -2% 内存 | 中 |
-| 过渡效果优化 | -1% 电池消耗 | 低 |
+| 优化措施                | 预期提升     | 实现难度 |
+| ----------------------- | ------------ | -------- |
+| backdrop-filter GPU加速 | -5% 首屏     | 低       |
+| 阴影合并减少重排        | -3% 交互延迟 | 中       |
+| 渐变纹理缓存            | -2% 内存     | 中       |
+| 过渡效果优化            | -1% 电池消耗 | 低       |
 
 ### ♿ 可访问性改进
 
@@ -924,13 +962,12 @@ Week 6-7: Phase 3 (页面集成)
 <!-- 确保足够的颜色对比度 -->
 <div class="glass-refined" role="article">
   <h2 aria-label="卡片标题">卡片标题</h2>
-  <button class="glass-button" aria-pressed="false">
-    操作按钮
-  </button>
+  <button class="glass-button" aria-pressed="false">操作按钮</button>
 </div>
 ```
 
 **WCAG 2.1 AA标准检查清单**:
+
 - [ ] 颜色对比度 ≥ 4.5:1 (正文)
 - [ ] 大号文本对比度 ≥ 3:1
 - [ ] 焦点指示器清晰可见
@@ -943,13 +980,13 @@ Week 6-7: Phase 3 (页面集成)
 
 ### ⚠️ 潜在风险
 
-| 风险 | 概率 | 影响 | 对策 |
-|------|------|------|------|
-| 浏览器兼容性问题 | 中 | 高 | 提供降级方案,使用@supports |
-| 性能下降 | 低 | 中 | 优化模糊度,使用GPU加速 |
-| 深色模式适配遗漏 | 中 | 中 | 完整的测试清单 |
-| Element Plus冲突 | 低 | 中 | 隔离CSS,使用BEM命名 |
-| 现有功能破坏 | 低 | 高 | 向后兼容,保留原有class |
+| 风险             | 概率 | 影响 | 对策                       |
+| ---------------- | ---- | ---- | -------------------------- |
+| 浏览器兼容性问题 | 中   | 高   | 提供降级方案,使用@supports |
+| 性能下降         | 低   | 中   | 优化模糊度,使用GPU加速     |
+| 深色模式适配遗漏 | 中   | 中   | 完整的测试清单             |
+| Element Plus冲突 | 低   | 中   | 隔离CSS,使用BEM命名        |
+| 现有功能破坏     | 低   | 高   | 向后兼容,保留原有class     |
 
 ### 🛡️ 落地保障
 
@@ -976,6 +1013,7 @@ Week 6-7: Phase 3 (页面集成)
 ### 当前设计 vs 玻璃拟态设计
 
 #### 导航栏对比
+
 ```
 当前:
 ┌─────────────────────────────────┐
@@ -990,6 +1028,7 @@ Week 6-7: Phase 3 (页面集成)
 ```
 
 #### 卡片组件对比
+
 ```
 当前:                          改进后:
 ┌─────────────────┐           ╔═════════════════╗
@@ -1004,6 +1043,7 @@ Week 6-7: Phase 3 (页面集成)
 ```
 
 #### 按钮交互对比
+
 ```
 当前:                          改进后:
 [按钮] ─hover→ [按钮]         [按 钮]  ─hover→  [按 钮] ▲
@@ -1067,4 +1107,3 @@ Week 6-7: Phase 3 (页面集成)
 **生成日期**: 2024年
 **版本**: 1.0
 **状态**: 📝 待审核和实施
-

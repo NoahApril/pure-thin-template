@@ -97,7 +97,7 @@
 
   /* 渐变文本 */
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent;
   }
 
   .text-gradient-success {
@@ -109,7 +109,7 @@
   }
 
   .text-gradient-error {
-    @apply bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-red-600 to-red-900 bg-clip-text text-transparent;
   }
 
   /* 渐变背景 */
