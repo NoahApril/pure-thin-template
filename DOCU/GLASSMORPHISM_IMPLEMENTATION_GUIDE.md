@@ -118,7 +118,7 @@
 @layer utilities {
   /* 阴影分层系统 */
   .shadow-soft {
-    box-shadow: 
+    box-shadow:
       0 2px 4px rgba(0, 0, 0, 0.03),
       0 4px 8px rgba(0, 0, 0, 0.04);
   }
@@ -133,7 +133,7 @@
   .shadow-floating {
     box-shadow:
       0 8px 16px rgba(0, 0, 0, 0.08),
-      0 16px 32px rgba(0, 0, 0, 0.10),
+      0 16px 32px rgba(0, 0, 0, 0.1),
       0 24px 48px rgba(0, 0, 0, 0.08);
   }
 
@@ -149,23 +149,47 @@
   }
 
   /* 透明度工具 */
-  .bg-white-40 { @apply bg-white/40; }
-  .bg-white-60 { @apply bg-white/60; }
-  .bg-white-80 { @apply bg-white/80; }
+  .bg-white-40 {
+    @apply bg-white/40;
+  }
+  .bg-white-60 {
+    @apply bg-white/60;
+  }
+  .bg-white-80 {
+    @apply bg-white/80;
+  }
 
-  .bg-black-40 { @apply bg-black/40; }
-  .bg-black-60 { @apply bg-black/60; }
+  .bg-black-40 {
+    @apply bg-black/40;
+  }
+  .bg-black-60 {
+    @apply bg-black/60;
+  }
 
   /* 边框颜色透明度 */
-  .border-glass-light { @apply border-slate-200/40; }
-  .border-glass-medium { @apply border-slate-200/60; }
-  .border-glass-dark { @apply border-slate-300/80; }
+  .border-glass-light {
+    @apply border-slate-200/40;
+  }
+  .border-glass-medium {
+    @apply border-slate-200/60;
+  }
+  .border-glass-dark {
+    @apply border-slate-300/80;
+  }
 
   /* 毛玻璃强度 */
-  .backdrop-blur-xs { @apply [backdrop-filter:blur(4px)]; }
-  .backdrop-blur-sm { @apply [backdrop-filter:blur(8px)]; }
-  .backdrop-blur-md { @apply [backdrop-filter:blur(12px)]; }
-  .backdrop-blur-lg { @apply [backdrop-filter:blur(16px)]; }
+  .backdrop-blur-xs {
+    @apply [backdrop-filter:blur(4px)];
+  }
+  .backdrop-blur-sm {
+    @apply [backdrop-filter:blur(8px)];
+  }
+  .backdrop-blur-md {
+    @apply [backdrop-filter:blur(12px)];
+  }
+  .backdrop-blur-lg {
+    @apply [backdrop-filter:blur(16px)];
+  }
 
   /* 组合过渡 */
   .transition-glass {
@@ -245,9 +269,14 @@
 
   /* 阴影系统 */
   --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.04);
-  --shadow-elevated: 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.04);
-  --shadow-floating: 0 8px 16px rgba(0, 0, 0, 0.08), 0 16px 32px rgba(0, 0, 0, 0.10), 0 24px 48px rgba(0, 0, 0, 0.08);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3), 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-elevated:
+    0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.08),
+    0 12px 24px rgba(0, 0, 0, 0.04);
+  --shadow-floating:
+    0 8px 16px rgba(0, 0, 0, 0.08), 0 16px 32px rgba(0, 0, 0, 0.1),
+    0 24px 48px rgba(0, 0, 0, 0.08);
+  --shadow-glow:
+    0 0 20px rgba(59, 130, 246, 0.3), 0 8px 24px rgba(0, 0, 0, 0.08);
 
   /* 过渡时间 */
   --transition-fast: 200ms;
@@ -303,7 +332,9 @@ html.dark {
   --glass-container-hover-border: rgba(100, 116, 139, 0.8);
 
   --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.12);
-  --shadow-elevated: 0 4px 8px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 24px rgba(0, 0, 0, 0.12);
+  --shadow-elevated:
+    0 4px 8px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.2),
+    0 12px 24px rgba(0, 0, 0, 0.12);
 }
 ```
 
@@ -329,13 +360,13 @@ html.dark {
   --color-slate-400-60: rgb(148 163 184 / 60%);
 
   /* 文本层次系统 - 6级深度 */
-  --color-text-h1: rgb(15 23 42 / 100%);          /* 主标题 */
-  --color-text-h2: rgb(30 41 59 / 100%);          /* 页面标题 */
-  --color-text-h3: rgb(51 65 85 / 100%);          /* 章节标题 */
-  --color-text-body: rgb(71 85 105 / 100%);       /* 正文 */
+  --color-text-h1: rgb(15 23 42 / 100%); /* 主标题 */
+  --color-text-h2: rgb(30 41 59 / 100%); /* 页面标题 */
+  --color-text-h3: rgb(51 65 85 / 100%); /* 章节标题 */
+  --color-text-body: rgb(71 85 105 / 100%); /* 正文 */
   --color-text-secondary: rgb(100 116 139 / 80%); /* 次要文本 */
-  --color-text-tertiary: rgb(120 113 108 / 60%);  /* 辅助文本 */
-  --color-text-hint: rgb(148 163 184 / 100%);     /* 提示文本 */
+  --color-text-tertiary: rgb(120 113 108 / 60%); /* 辅助文本 */
+  --color-text-hint: rgb(148 163 184 / 100%); /* 提示文本 */
 
   /* 状态色 - 浅色背景版本 */
   --color-success-text: rgb(16 185 129 / 100%);
@@ -388,9 +419,9 @@ html.dark {
 
 ```vue
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 
-type ShadowType = 'soft' | 'elevated' | 'floating';
+type ShadowType = "soft" | "elevated" | "floating";
 
 interface Props {
   title?: string;
@@ -399,15 +430,15 @@ interface Props {
   hoverable?: boolean;
   gradient?: boolean;
   shadow?: ShadowType;
-  rounded?: 'sm' | 'md' | 'lg' | 'xl';
+  rounded?: "sm" | "md" | "lg" | "xl";
   noBorder?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   hoverable: true,
   gradient: false,
-  shadow: 'soft',
-  rounded: 'lg',
+  shadow: "soft",
+  rounded: "lg",
   noBorder: false
 });
 
@@ -519,11 +550,13 @@ const roundedClass = computed(() => `glass-card--rounded-${props.rounded}`);
 
   /* 渐变背景模式 */
   &--gradient {
-    background: linear-gradient(
-      135deg,
-      rgba(59, 130, 246, 0.05) 0%,
-      rgba(168, 85, 247, 0.05) 100%
-    ), var(--color-white-60);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.05) 0%,
+        rgba(168, 85, 247, 0.05) 100%
+      ),
+      var(--color-white-60);
   }
 
   /* 背景光晕效果(仅在hoverable时) */
@@ -666,10 +699,16 @@ const roundedClass = computed(() => `glass-card--rounded-${props.rounded}`);
 
 ```vue
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 
-type ButtonType = 'primary' | 'secondary' | 'ghost' | 'danger' | 'success' | 'warning';
-type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type ButtonType =
+  | "primary"
+  | "secondary"
+  | "ghost"
+  | "danger"
+  | "success"
+  | "warning";
+type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 interface Props {
   type?: ButtonType;
@@ -684,8 +723,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  type: 'primary',
-  size: 'md',
+  type: "primary",
+  size: "md",
   disabled: false,
   loading: false,
   round: false,
@@ -743,7 +782,7 @@ const sizeClass = computed(() => `glass-button--${props.size}`);
 
   /* 发光效果 */
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -1033,9 +1072,9 @@ const sizeClass = computed(() => `glass-button--${props.size}`);
 </template>
 
 <script setup lang="ts">
-import GlassCard from '@/components/GlassCard/index.vue';
-import GlassButton from '@/components/GlassButton/index.vue';
-import SaveIcon from '~icons/ri/save-line';
+import GlassCard from "@/components/GlassCard/index.vue";
+import GlassButton from "@/components/GlassButton/index.vue";
+import SaveIcon from "~icons/ri/save-line";
 </script>
 ```
 
@@ -1135,4 +1174,3 @@ A: 使用@supports规则检查特性支持，使用solid背景作为降级方案
 
 **最后更新**: 2024年
 **版本**: 1.0
-
